@@ -82,23 +82,25 @@ public class Ticket {
 	}
 	
 	public Ticket(int tid, int uid, String ticketType, String ticketContent,
-			String timeStamp) {
+			String timeStamp, String ticket_status) {
 		super();
 		this.tid = tid;
 		this.uid = uid;
 		this.ticketType = ticketType;
 		this.ticketContent = ticketContent;
 		this.timeStamp = timeStamp;
+		this.ticket_status = ticket_status;
 	}
 	
 	public Ticket(int uid, String ticketType, String ticketContent,
-			String timeStamp,int lid) {
+			String timeStamp,int lid, String ticket_status) {
 		super();
 		this.uid = uid;
 		this.ticketType = ticketType;
 		this.ticketContent = ticketContent;
 		this.timeStamp = timeStamp;
 		this.lid = lid;
+		this.ticket_status = ticket_status;
 	}
 	
 	public Ticket(Map<String, Object> data)
