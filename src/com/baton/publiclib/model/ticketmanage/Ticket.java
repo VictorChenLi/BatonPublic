@@ -10,6 +10,13 @@ public class Ticket {
 	public static final String TICKETTYPE_WEB_STR = "ticketType";
 	public static final String TICKETCONTENT_WEB_STR = "ticketContent";
 	public static final String TIMESTAMP_WEB_STR = "timeStamp";
+	public static final String TICKETSTATUS_WEB_STR = "ticket_status";
+	
+	public static final String TID_DB_STR = "tid";
+	public static final String UID_DB_STR = "uid";
+	public static final String TICKETTYPE_DB_STR = "ticketType";
+	public static final String TICKETCONTENT_DB_STR = "ticketContent";
+	public static final String TIMESTAMP_DB_STR = "timeStamp";
 	public static final String TICKETSTATUS_DB_STR = "ticket_status";
 	
 	public static final String TICKETSTATUS_RAISING = "raising";
