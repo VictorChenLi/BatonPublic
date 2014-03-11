@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class UserProfile {
 	public static final String GCMID_WEB_STR = "gcm_regid";
-	public static final String LOGINID_WEB_STR = "nick_name";
-	public static final String TEACHER_NICKNAME_WEB_STR = "teacher_nick_name";
+	public static final String LOGINID_WEB_STR = "login_id";	
+	public static final String TEACHER_LOGINID_WEB_STR = "teacher_login_id";
 	public static final String EMAIL_WEB_STR = "email";
 	public static final String PASSWORD_WEB_STR = "password";
 	public static final String FNAME_WEB_STR = "f_name";
