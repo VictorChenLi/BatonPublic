@@ -1,14 +1,9 @@
 package com.baton.publiclib.model.classmanage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import com.baton.publiclib.model.ticketmanage.Ticket;
 import com.baton.publiclib.model.usermanage.UserProfile;
 
 public class ClassParticipate {
-//	public static final String STUDENT_ID_DB_STR ="student_id";
 	
 	private int lid;
 	private UserProfile student;
