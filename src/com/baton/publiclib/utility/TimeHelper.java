@@ -25,7 +25,6 @@ public class TimeHelper {
 		try {
 			parseDate = simpleDateFormat.parse(strTime);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return parseDate.getTime();
