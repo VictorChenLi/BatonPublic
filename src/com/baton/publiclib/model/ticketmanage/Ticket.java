@@ -11,6 +11,7 @@ public class Ticket {
 	public static final String TICKETCONTENT_WEB_STR = "ticketContent";
 	public static final String TIMESTAMP_WEB_STR = "timeStamp";
 	public static final String TICKETSTATUS_WEB_STR = "ticket_status";
+	public static final String TICKET_LIST_WEB_STR= "ticket_list";
 	
 	public static final String TID_DB_STR = "tid";
 	public static final String UID_DB_STR = "uid";
@@ -82,13 +83,14 @@ public class Ticket {
 	}
 	
 	public Ticket(int tid, int uid, String ticketType, String ticketContent,
-			String timeStamp, String ticket_status) {
+			String timeStamp, int lid, String ticket_status) {
 		super();
 		this.tid = tid;
 		this.uid = uid;
 		this.ticketType = ticketType;
 		this.ticketContent = ticketContent;
 		this.timeStamp = timeStamp;
+		this.lid = lid;
 		this.ticket_status = ticket_status;
 	}
 	
@@ -111,6 +113,8 @@ public class Ticket {
 		this.ticketType = data.get("ticketType").toString();
 		this.ticketContent = data.get("ticketContent").toString();
 		this.timeStamp = data.get("timeStamp").toString();
+		this.lid = Integer.valueOf(data.get("lid").toString());
+		this.ticket_status = data.get("ticket_status").toString();
 	}
 	
 	public List<String> getUserData()
@@ -121,6 +125,7 @@ public class Ticket {
 		userData.add(this.ticketContent);
 		userData.add(this.timeStamp);
 		userData.add(String.valueOf(this.lid));
+		userData.add(this.ticket_status);
 		return userData;
 	}
 	

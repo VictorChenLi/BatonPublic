@@ -10,12 +10,14 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import com.baton.publiclib.model.classmanage.ClassLesson;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import net.sf.json.util.JSONUtils;
 import net.sf.json.xml.XMLSerializer;
-
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import flexjson.ObjectBinder;
@@ -30,7 +32,7 @@ public class JsonHelper
     /**
      * 日志工具
      */
-    private static Logger logger = Logger.getLogger(JsonHelper.class);
+//    private static Logger logger = Logger.getLogger(JsonHelper.class);
 
     /**
      * 将对象序列化为字符串
@@ -94,67 +96,86 @@ public class JsonHelper
      * @param clazz 类型
      * @return 序列化后的对�?
      */
-    public static Object deserialize(String json, Class<?> clazz)
-    {
-        JSONObject jsonObj = (JSONObject) net.sf.json.JSONSerializer
-                .toJSON(json);
-        String reqClassName = clazz.getName();
-        jsonObj.put("class", reqClassName);
-        json = jsonObj.toString();
-
-        JSONDeserializer<Object> deserializer = new JSONDeserializer<Object>();
-        deserializer.use(Boolean.class, new ObjectFactory()
-        {
-
-            @Override
-            public Object instantiate(ObjectBinder context, Object value,
-                    Type targetType,
-                    @SuppressWarnings("rawtypes") Class targetClass)
-            {
-                if (value instanceof Boolean)
-                {
-                    return value;
-                }
-                else
-                {
-                    Boolean ret = Boolean.parseBoolean(value.toString());
-                    return ret;
-                }
-            }
-        });
-        Object out = deserializer.deserialize(json);
-        return out;
-    }
+//    public static Object deserialize(String json, Class<?> clazz)
+//    {
+//        JSONObject jsonObj = (JSONObject) net.sf.json.JSONSerializer
+//                .toJSON(json);
+//        String reqClassName = clazz.getName();
+//        jsonObj.put("class", reqClassName);
+//        json = jsonObj.toString();
+//
+//        JSONDeserializer<Object> deserializer = new JSONDeserializer<Object>();
+//        deserializer.use(Boolean.class, new ObjectFactory()
+//        {
+//
+//            @Override
+//            public Object instantiate(ObjectBinder context, Object value,
+//                    Type targetType,
+//                    @SuppressWarnings("rawtypes") Class targetClass)
+//            {
+//                if (value instanceof Boolean)
+//                {
+//                    return value;
+//                }
+//                else
+//                {
+//                    Boolean ret = Boolean.parseBoolean(value.toString());
+//                    return ret;
+//                }
+//            }
+//        });
+//        Object out = deserializer.deserialize(json);
+//        return out;
+//    }
 
     /**
      * 将json字符串转换为bean对象
      * @param json json字符�?
      * @return bean对象
      */
-    public static Object deserialize(String json)
+//    public static Object deserialize(String json)
+//    {
+//        JSONDeserializer<Object> deserializer = new JSONDeserializer<Object>();
+//        deserializer.use(Boolean.class, new ObjectFactory()
+//        {
+//
+//            @Override
+//            public Object instantiate(ObjectBinder context, Object value,
+//                    Type targetType,
+//                    @SuppressWarnings("rawtypes") Class targetClass)
+//            {
+//                if (value instanceof Boolean)
+//                {
+//                    return value;
+//                }
+//                else
+//                {
+//                    Boolean ret = Boolean.parseBoolean(value.toString());
+//                    return ret;
+//                }
+//            }
+//        });
+//        Object out = deserializer.deserialize(json);
+//        return out;
+//    }
+    
+    public static <T> T deserialize(String json, Class<?> clazz)
     {
-        JSONDeserializer<Object> deserializer = new JSONDeserializer<Object>();
-        deserializer.use(Boolean.class, new ObjectFactory()
-        {
-
-            @Override
-            public Object instantiate(ObjectBinder context, Object value,
-                    Type targetType,
-                    @SuppressWarnings("rawtypes") Class targetClass)
-            {
-                if (value instanceof Boolean)
-                {
-                    return value;
-                }
-                else
-                {
-                    Boolean ret = Boolean.parseBoolean(value.toString());
-                    return ret;
-                }
-            }
-        });
-        Object out = deserializer.deserialize(json);
-        return out;
+    	JSONDeserializer<T> deserializer = null;
+    	try
+    	{
+    		deserializer = new JSONDeserializer<T>();
+    	} catch(Exception ee)
+    	{
+    		ee.printStackTrace();
+    	}
+    	return deserializer.use(null, clazz).deserialize(json);
+    }
+    
+    public static <T> List<T> deserializeList(String json, Class<?> clazz)
+    {
+    	return new JSONDeserializer<List<T>>().deserialize(json);
+    	
     }
 
     /**
@@ -221,7 +242,7 @@ public class JsonHelper
         }
         catch (Exception e)
         {
-            logger.error(e);
+//            logger.error(e);
         }
     }
 
@@ -470,8 +491,19 @@ public class JsonHelper
     
     public static void main(String[] args)
     {
-    	JSONObject json = new JSONObject();
-    	json.put("test", "test1");
+//    	JSONObject json = new JSONObject();
+//    	json.put("test", "test1");
+    	ClassLesson lesson = new ClassLesson(0, 0, "sdsd", "sdfsfd", "sfsd", "777", "77");
+    	ClassLesson Lesson2 = new ClassLesson(1, 1, "ytytyt", "ofofo", "lfkkkf", "888", "88");
+    	List<ClassLesson> lessonList = new ArrayList<ClassLesson>();
+    	lessonList.add(Lesson2);
+    	lessonList.add(lesson);
+    	String objJson = JsonHelper.serialize(lessonList);
+    	System.out.println(objJson);
+//    	ClassLesson newLesson = new JSONDeserializer<ClassLesson>().use(null,ClassLesson.class).deserialize(objJson);
+//    	ClassLesson newLesson = JsonHelper.deserialize(objJson, ClassLesson.class);
+    	List<ClassLesson> newLessonList = JsonHelper.deserializeList(objJson, ClassLesson.class);
+    	System.out.println(objJson);
     }
 
     /**
@@ -694,7 +726,7 @@ public class JsonHelper
             else
             {
                 // for error
-                logger.error(" error type");
+//                logger.error(" error type");
             }
         }
     }
