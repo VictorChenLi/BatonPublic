@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UserProfile {
+	public static final String UID_WEB_STR = "uid";
 	public static final String GCMID_WEB_STR = "gcm_regid";
 	public static final String LOGINID_WEB_STR = "login_id";	
 	public static final String TEACHER_LOGINID_WEB_STR = "teacher_login_id";
@@ -15,8 +16,9 @@ public class UserProfile {
 	public static final String USERTYPE_WEB_STR = "user_type";
 	public static final String CREATEAT_WEB_STR = "created_at";
 
+	public static final String UID_DB_STR = "uid";
 	public static final String GCMID_DB_STR = "gcm_regid";
-	public static final String LOGINID_DB_STR = "nick_name";
+	public static final String LOGINID_DB_STR = "login_id";
 	public static final String EMAIL_DB_STR = "email";
 	public static final String PASSWORD_DB_STR = "password";
 	public static final String FNAME_DB_STR = "f_name";

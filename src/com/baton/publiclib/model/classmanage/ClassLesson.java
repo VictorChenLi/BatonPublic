@@ -73,6 +73,9 @@ public class ClassLesson {
 		this.status = status;
 	}
 	
+	public ClassLesson()
+	{}
+	
 	public ClassLesson(int lid, int cid, String lesson_name,
 			String lesson_description, String start_time, String end_time,
 			String status) {
@@ -91,11 +94,11 @@ public class ClassLesson {
 		super();
 		this.lid=Integer.valueOf(data.get(ClassLesson.LESSONID_DB_STR).toString());
 		this.cid=Integer.valueOf(data.get(VirtualClass.CID_DB_STR).toString());
-		this.lesson_name=data.get(ClassLesson.LESSONNAME_DB_STR).toString();
-		this.lesson_description = data.get(ClassLesson.LESSONDESCRIPTION_DB_STR).toString();
-		this.start_time = data.get(ClassLesson.LESSONSTARTTIME_DB_STR).toString();
-		this.end_time = data.get(ClassLesson.LESSONENDTIME_DB_STR).toString();
-		this.status = data.get(ClassLesson.LESSONSTATUS_DB_STR).toString();
+		this.lesson_name=(null==data.get(ClassLesson.LESSONNAME_DB_STR))?null:data.get(ClassLesson.LESSONNAME_DB_STR).toString();
+		this.lesson_description = (null==data.get(ClassLesson.LESSONDESCRIPTION_DB_STR))?null:data.get(ClassLesson.LESSONDESCRIPTION_DB_STR).toString();
+		this.start_time = (null==data.get(ClassLesson.LESSONSTARTTIME_DB_STR))?null:data.get(ClassLesson.LESSONSTARTTIME_DB_STR).toString();
+		this.end_time = (null==data.get(ClassLesson.LESSONENDTIME_DB_STR))?null:data.get(ClassLesson.LESSONENDTIME_DB_STR).toString();
+		this.status = (null==data.get(ClassLesson.LESSONSTATUS_DB_STR))?null:data.get(ClassLesson.LESSONSTATUS_DB_STR).toString();
 	}
 
 	public List<String> getUserData()

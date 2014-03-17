@@ -1,26 +1,48 @@
 package com.baton.publiclib.model.ticketmanage;
 
 public class TalkTicketForDisplay {
+	
+	public static final String INTENT_EXTRA_ITEM_STUDENT_NAME = "student_name";
+	public static final String INTENT_EXTRA_ITEM_WAIT_TIME = "startTimeStamp";
+	public static final String INTENT_EXTRA_ITEM_PAR_TIMES = "participate_times";
+	public static final String INTENT_EXTRA_ITEM_PAR_INTENT = "participate_intent";
+	
 	final String ticketType = Ticket.TICKET_TYPE_TALK;
 	String startTimeStamp;
-	String student_name;
+	String student_name;//login_id
+	int uid;
+	int lid;
 	String participate_intent;
-	String participate_times;
-	/**
-	 * @param startTimeStamp
-	 * @param student_name
-	 * @param participate_intent
-	 * @param participate_times
-	 */
-	public TalkTicketForDisplay(String startTimeStamp, String student_name,
-			String participate_intent, String participate_times) {
-		this.startTimeStamp = startTimeStamp;
-		this.student_name = student_name;
-		this.participate_intent = participate_intent;
-		this.participate_times = participate_times;
-	}
+	int participate_times;
+	int response_times;
 	
 	public TalkTicketForDisplay(){}
+
+	/**
+	 * @param student_name
+	 * @param uid
+	 * @param lid
+	 */
+	public TalkTicketForDisplay(String student_name, int uid, int lid) {
+		super();
+		this.student_name = student_name;
+		this.uid = uid;
+		this.lid = lid;
+	}
+	
+
+	public TalkTicketForDisplay(String startTimeStamp, String student_name,
+			int uid, int lid, String participate_intent,
+			int participate_times, int response_times) {
+		super();
+		this.startTimeStamp = startTimeStamp;
+		this.student_name = student_name;
+		this.uid = uid;
+		this.lid = lid;
+		this.participate_intent = participate_intent;
+		this.participate_times = participate_times;
+		this.response_times = response_times;
+	}
 
 	public String getStartTimeStamp() {
 		return startTimeStamp;
@@ -46,12 +68,40 @@ public class TalkTicketForDisplay {
 		this.participate_intent = participate_intent;
 	}
 
-	public String getParticipate_times() {
+	public int getParticipate_times() {
 		return participate_times;
 	}
 
-	public void setParticipate_times(String participate_times) {
+	public void setParticipate_times(int participate_times) {
 		this.participate_times = participate_times;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public int getLid() {
+		return lid;
+	}
+
+	public void setLid(int lid) {
+		this.lid = lid;
+	}
+
+	public int getResponse_times() {
+		return response_times;
+	}
+
+	public void setResponse_times(int response_times) {
+		this.response_times = response_times;
+	}
+
+	public String getTicketType() {
+		return ticketType;
 	}
 	
 	
