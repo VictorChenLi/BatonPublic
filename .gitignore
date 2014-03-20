@@ -15,6 +15,10 @@ target/
 
 # Local configuration file (sdk path, etc)
 local.properties
+.classpath
+
+# my lib folder
+lib/
 
 # Eclipse project files
 

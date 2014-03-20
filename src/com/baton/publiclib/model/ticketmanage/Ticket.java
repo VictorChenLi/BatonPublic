@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Ticket {
+	/**ticket id in server database*/
 	public static final String TID_WEB_STR = "tid";
+	/**student id (primary key) in user_profile table*/
 	public static final String UID_WEB_STR = "uid";
 	public static final String TICKETTYPE_WEB_STR = "ticketType";
 	public static final String TICKETCONTENT_WEB_STR = "ticketContent";
