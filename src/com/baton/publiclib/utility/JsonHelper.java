@@ -5,19 +5,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
-
-import org.apache.log4j.Logger;
-
-import com.baton.publiclib.model.classmanage.ClassLesson;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+import java.util.Set;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import net.sf.json.util.JSONUtils;
 import net.sf.json.xml.XMLSerializer;
+
+import com.baton.publiclib.model.classmanage.ClassLesson;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import flexjson.ObjectBinder;
