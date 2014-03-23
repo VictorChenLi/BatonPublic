@@ -82,6 +82,9 @@ public class Ticket {
 		this.ticket_status = ticket_status;
 	}
 	
+	public Ticket()
+	{}
+	
 	public Ticket(int tid, int uid, String ticketType, String ticketContent,
 			String timeStamp, int lid, String ticket_status) {
 		super();

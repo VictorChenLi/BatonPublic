@@ -174,7 +174,14 @@ public class JsonHelper
     
     public static <T> List<T> deserializeList(String json, Class<?> clazz)
     {
-    	return new JSONDeserializer<List<T>>().deserialize(json);
+    	List<T> midList = new JSONDeserializer<List<T>>().deserialize(json);
+    	List<T> retList = new ArrayList<T>();
+    	for(Object obj : midList)
+    	{
+    		retList.add((T) JsonHelper.deserialize(JsonHelper.serialize(obj), clazz));
+    	}
+    	
+    	return retList;
     	
     }
 
@@ -503,6 +510,10 @@ public class JsonHelper
 //    	ClassLesson newLesson = new JSONDeserializer<ClassLesson>().use(null,ClassLesson.class).deserialize(objJson);
 //    	ClassLesson newLesson = JsonHelper.deserialize(objJson, ClassLesson.class);
     	List<ClassLesson> newLessonList = JsonHelper.deserializeList(objJson, ClassLesson.class);
+    	for(ClassLesson les : newLessonList)
+    	{
+    		System.out.println(les.getStatus());
+    	}
     	System.out.println(objJson);
     }
 
