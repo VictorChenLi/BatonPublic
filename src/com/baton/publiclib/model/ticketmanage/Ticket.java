@@ -22,8 +22,13 @@ public class Ticket {
 	public static final String TIMESTAMP_DB_STR = "timeStamp";
 	public static final String TICKETSTATUS_DB_STR = "ticket_status";
 	
+	/**this ticket status indicates that according student is raising his/her hands, waiting for teacher*/
 	public static final String TICKETSTATUS_RAISING = "raising";
+	/**this ticket status indicates that teacher has response to according student
+     * ,and delete it from the screen*/
 	public static final String TICKETSTATUS_RESPOND = "respond";
+	/**this ticket status indicates that teacher has not responsed to according student
+     * ,and reset it with all the other ticket from the screen*/
 	public static final String TICKETSTATUS_DISCARD = "discard";
 	
 	public static final String TALK_INTENT_BUILD_WEB_STR="talk_build";
