@@ -1,7 +1,7 @@
 package com.baton.publiclib.model.ticketmanage;
 
-public class TalkTicketForDisplay {
-	
+public class TalkTicketForDisplay implements Comparable<TalkTicketForDisplay>{
+	//TODO: 需要加上status属性。。。
 	public static final String INTENT_EXTRA_ITEM_STUDENT_NAME = "student_name";
 	public static final String INTENT_EXTRA_ITEM_WAIT_TIME = "startTimeStamp";
 	public static final String INTENT_EXTRA_ITEM_PAR_TIMES = "participate_times";
@@ -15,7 +15,16 @@ public class TalkTicketForDisplay {
 	String participate_intent;
 	int participate_times;
 	int response_times;
+	String ticket_status;
 	
+	public String getTicket_status() {
+		return ticket_status;
+	}
+
+	public void setTicket_status(String ticket_status) {
+		this.ticket_status = ticket_status;
+	}
+
 	public TalkTicketForDisplay(){}
 
 	/**
@@ -32,7 +41,7 @@ public class TalkTicketForDisplay {
 	
 
 	public TalkTicketForDisplay(String startTimeStamp, String student_name,
-			int uid, int lid, String participate_intent,
+			int uid, int lid, String participate_intent,String ticket_status,
 			int participate_times, int response_times) {
 		super();
 		this.startTimeStamp = startTimeStamp;
@@ -40,8 +49,14 @@ public class TalkTicketForDisplay {
 		this.uid = uid;
 		this.lid = lid;
 		this.participate_intent = participate_intent;
+		this.ticket_status = ticket_status;
 		this.participate_times = participate_times;
 		this.response_times = response_times;
+	}
+
+	@Override
+	public int compareTo(TalkTicketForDisplay o) {
+		return startTimeStamp.compareTo(o.startTimeStamp);
 	}
 
 	public String getStartTimeStamp() {

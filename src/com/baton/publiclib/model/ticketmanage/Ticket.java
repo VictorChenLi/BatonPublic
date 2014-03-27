@@ -22,6 +22,11 @@ public class Ticket {
 	public static final String TIMESTAMP_DB_STR = "timeStamp";
 	public static final String TICKETSTATUS_DB_STR = "ticket_status";
 	
+	
+	/**
+	 * In talk mode, every student may have more than one tickets, but only one is in the state of "raising",
+	 * those tickets that were dicarded or responsed by teacher will still be in the database, mainly used for participant time accounting
+	 */
 	/**this ticket status indicates that according student is raising his/her hands, waiting for teacher*/
 	public static final String TICKETSTATUS_RAISING = "raising";
 	/**this ticket status indicates that teacher has response to according student
