@@ -26,6 +26,7 @@ public class LoginSession {
 	public final static String LOGIN_STATUS_ACTIVE = "active";
 	public final static String LOGIN_STATUS_INACTIVE = "inactive";
 	
+	
 	int session_id;
 	int lid;
 	int uid;

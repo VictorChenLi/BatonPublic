@@ -147,9 +147,13 @@ public class UserProfile {
 		userData.add(this.user_type);
 		return userData;
 	}
+	
+	public UserProfile(){
+		
+	}
 
 	public String toString() {
-		return "firstName:"+this.getF_name() + "," + "lastName:"+this.getL_name() + ","
+		return "##UserProfile### firstName:"+this.getF_name() + "," + "lastName:"+this.getL_name() + ","
 				+ "email:"+this.getEmail() + "," + "login_id:"+this.getLogin_id() + ","
 				+ "password:"+this.getPassword() + "," + "gcmid:"+this.gcm_regid;
 	}

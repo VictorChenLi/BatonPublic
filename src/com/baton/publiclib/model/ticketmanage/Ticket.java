@@ -9,6 +9,7 @@ public class Ticket {
 	public static final String TID_WEB_STR = "tid";
 	/**student id (primary key) in user_profile table*/
 	public static final String UID_WEB_STR = "uid";
+	public static final String LID_WEB_STR = "lid";
 	public static final String TICKETTYPE_WEB_STR = "ticketType";
 	public static final String TICKETCONTENT_WEB_STR = "ticketContent";
 	public static final String TIMESTAMP_WEB_STR = "timeStamp";
@@ -17,6 +18,7 @@ public class Ticket {
 	
 	public static final String TID_DB_STR = "tid";
 	public static final String UID_DB_STR = "uid";
+	public static final String LID_DB_STR = "lid";
 	public static final String TICKETTYPE_DB_STR = "ticketType";
 	public static final String TICKETCONTENT_DB_STR = "ticketContent";
 	public static final String TIMESTAMP_DB_STR = "timeStamp";
@@ -142,6 +144,10 @@ public class Ticket {
 		userData.add(String.valueOf(this.lid));
 		userData.add(this.ticket_status);
 		return userData;
+	}
+	
+	public String toString(){
+		return "##Ticket### lid: "+lid+" tid: "+tid+ " uid: " + uid + " ticketType: "+ ticketType + " ticketContent: " + ticketContent + " ticket_status: "+ticket_status;
 	}
 	
 }

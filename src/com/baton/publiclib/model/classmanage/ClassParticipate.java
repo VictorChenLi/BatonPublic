@@ -1,15 +1,21 @@
 package com.baton.publiclib.model.classmanage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.baton.publiclib.model.ticketmanage.Ticket;
 import com.baton.publiclib.model.usermanage.UserProfile;
 
+/**
+ * dynamic paticipate info
+ */
 public class ClassParticipate {
 	
 	private int lid;
 	private UserProfile student;
-	private int participate_times;
-	private int response_times;
-	private Ticket curTicket;
+	private List<Ticket> curTicketList = new ArrayList<Ticket>(1); //null or 0 size means only login this lesson, but no ticket yet, 
+	                           //or ticket has been discarded by teacher by reset all operation
+	
 	public int getLid() {
 		return lid;
 	}
@@ -22,33 +28,25 @@ public class ClassParticipate {
 	public void setStudent(UserProfile student) {
 		this.student = student;
 	}
-	public int getParticipate_times() {
-		return participate_times;
+
+	
+	public List<Ticket> getCurTicketList() {
+		return curTicketList;
 	}
-	public void setParticipate_times(int participate_times) {
-		this.participate_times = participate_times;
+	public void setCurTicketList(List<Ticket> curTicketList) {
+		this.curTicketList = curTicketList;
 	}
-	public int getResponse_times() {
-		return response_times;
-	}
-	public void setResponse_times(int response_times) {
-		this.response_times = response_times;
-	}
-	public Ticket getCurTicket() {
-		return curTicket;
-	}
-	public void setCurTicket(Ticket curTicket) {
-		this.curTicket = curTicket;
-	}
-	public ClassParticipate(int lid, UserProfile student,
-			int participate_times, int response_times, Ticket curTicket) {
+	public ClassParticipate(int lid, UserProfile student, List<Ticket> curTicketList) {
 		super();
 		this.lid = lid;
 		this.student = student;
-		this.participate_times = participate_times;
-		this.response_times = response_times;
-		this.curTicket = curTicket;
+		this.curTicketList = curTicketList;
 	}
 	
 	
+	public ClassParticipate() {
+	}
+	public String toString(){
+		return "###ClassParticipate## lid: "+lid+" "+student==null?"null":student.toString()+" "+curTicketList==null?"null":curTicketList.toString();
+	}
 }
